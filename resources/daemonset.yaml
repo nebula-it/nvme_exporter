@@ -12,13 +12,15 @@ spec:
         app: nvme-exporter
     spec:
       tolerations:
-      - key: node-role.kubernetes.io/master
+      - key: node-role.kubernetes.io/control-plane
         operator: Exists
         effect: NoSchedule
+      # Optional: node selector to only run on nodes with NVMe disks
+      # nodeSelector:
+      #   storageBackend: NVMe
       containers:
       - name: nvme-exporter
-        image: "fritchie/nvme_exporter"
-        command: ["nvme_exporter"]
+        image: "ghcr.io/nebula-it/nvme_exporter:latest"
         # nvme-cli requires pod to be privileged
         securityContext:
           privileged: true
