@@ -1,15 +1,13 @@
-FROM golang:1.16
-MAINTAINER nebula-it <40148908+nebula-it@users.noreply.github.com>
+FROM alpine:3.19
 
-RUN apt-get update
-RUN apt-get -y install nvme-cli
+WORKDIR /app
+COPY nvme_exporter .
 
-WORKDIR /go/src/nvme_exporter
-COPY . .
+# Install nvme-cli and any other dependencies
+RUN apk add --no-cache nvme-cli
 
-RUN go get -d -v ./...
-RUN go install -v ./...
-
+# Keep root user since nvme-cli requires root access
+USER root
 EXPOSE 9998
 
-CMD [ "nvme_exporter" ]
+ENTRYPOINT ["/app/nvme_exporter"]
