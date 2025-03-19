@@ -67,7 +67,7 @@ jobs:
           # https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
           # push to both docker hub and Github Container Registry
           images: |
-            ${{ env.FULL_IMAGE_NAME }}
+            # ${{ env.FULL_IMAGE_NAME }}
             ${{ env.GH_REGISTRY }}/${{ env.FULL_IMAGE_NAME }}
           tags: |
             type=semver,pattern={{version}}
