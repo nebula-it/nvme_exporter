@@ -105,7 +105,7 @@ nvme_power_on_hours{device="/dev/nvme2n1"} 16342
 nvme_spare_thresh{device="/dev/nvme0n1"} 10
 nvme_spare_thresh{device="/dev/nvme1n1"} 10
 nvme_spare_thresh{device="/dev/nvme2n1"} 5
-# HELP nvme_temperature Temperature in degrees fahrenheit
+# HELP nvme_temperature Temperature in degree celsius
 # TYPE nvme_temperature gauge
 nvme_temperature{device="/dev/nvme0n1"} 103.73000000000005
 nvme_temperature{device="/dev/nvme1n1"} 105.53000000000004

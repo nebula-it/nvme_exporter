@@ -1,5 +1,5 @@
 FROM golang:1.16
-MAINTAINER Frank R <12985912+fritchie@users.noreply.github.com>
+MAINTAINER nebula-it <40148908+nebula-it@users.noreply.github.com>
 
 RUN apt-get update
 RUN apt-get -y install nvme-cli
